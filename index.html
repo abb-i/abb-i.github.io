@@ -1,73 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abbi</title>
-    <meta name="description" content="We create miracles – podcast, newsletter, community.">
-
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abbi — Abdulkadir Dogan</title>
+  <meta name="description" content="An university student with too many creative hobbies — writing, podcasting, running. Often described as a creative maniac." />
+  <meta property="og:title" content="Abbi — Abdulkadir Dogan" />
+  <meta property="og:description" content="Writing. Podcasting. Running. Unscrolled." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <canvas id="drawingCanvas"></canvas>
 
-    <div class="container">
-        <div class="hero">
-            <h1 class="hero-title">We create miracles</h1>
-        </div>
+<!-- ── Navbar ─────────────────────────────────────────────────── -->
+<nav id="navbar" class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">ABBI</a>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</nav>
 
-        <div class="social-links">
-            <a href="https://www.youtube.com/@abbiDogan" class="social-link">
-                <img src="youtube.png" alt="" class="social-icon">
-                <span>@abbiDogan</span>
-            </a>
-            <a href="https://x.com/abbiDogan" class="social-link">
-                <img src="x.png" alt="" class="social-icon">
-                <span>@abbiDogan</span>
-            </a>
-            <a href="https://www.instagram.com/abbidogan/" class="social-link">
-                <img src="instagram.png" alt="" class="social-icon">
-                <span>@abbidogan</span>
-            </a>
-        </div>
+<!-- ── Menu overlay ───────────────────────────────────────────── -->
+<div id="menu-overlay" class="menu-overlay">
+  <nav class="menu-nav">
+    <a href="about.html"         style="animation-delay:0ms">About</a>
+    <a href="nodistraction.html" style="animation-delay:60ms">No Distraction</a>
+    <a href="antiletter.html"    style="animation-delay:120ms">Anti Letter</a>
+    <a href="unscrolled.html"    style="animation-delay:180ms">Unscrolled</a>
+    <a href="impressum.html"     style="animation-delay:240ms">Impressum</a>
+  </nav>
+</div>
 
-        <div class="content-cards">
-            <a href="https://www.youtube.com/@abbiDogan" class="card">
-                <img src="podcast.png" alt="" class="card-icon">
-                <div class="card-content">
-                    <h2 class="card-title">Focused conversations</h2>
-                    <p class="card-description">My podcast with creatives entrepreneurs.</p>
-                </div>
-                <span class="card-action">listen now</span>
-            </a>
+<!-- ── Hero ──────────────────────────────────────────────────── -->
+<section class="hero">
+  <video id="hero-video" class="hero-video" autoplay muted loop playsinline src="public/video/hero.mp4"></video>
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-dot-1"></div>
+  <div class="hero-dot-2"></div>
 
-            <a href="https://abbidogan.substack.com/" class="card">
-                <img src="email.png" alt="" class="card-icon">
-                <div class="card-content">
-                    <h2 class="card-title">Focused letters</h2>
-                    <p class="card-description">Thoughts on creativity, analogue living and focus.</p>
-                </div>
-                <span class="card-action">sign up</span>
-            </a>
+  <div id="hero-content" class="hero-content">
+    <div class="hero-text-row">
+      <h1 id="hero-heading" class="hero-heading">Hello, I am Abbi</h1>
+      <span id="hero-flag" class="hero-flag" aria-hidden="true">🇬🇧</span>
+    </div>
+  </div>
 
-            <a href="https://whop.com/focused-entrepreneur" class="card">
-                <img src="whop.png" alt="" class="card-icon">
-                <div class="card-content">
-                    <h2 class="card-title">Focused entrepreneur</h2>
-                    <p class="card-description">Transform scrolling into meaningful work.</p>
-                </div>
-                <span class="card-action">learn more</span>
-            </a>
-        </div>
+  <div class="scroll-arrow scroll-arrow-indicator">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
 
-        <footer class="footer">© 2025 Abbi</footer>
+<!-- ── About ─────────────────────────────────────────────────── -->
+<section class="about-section">
+  <div class="about-accent-bar"></div>
+  <div class="about-inner">
+
+    <div class="about-text-col fade-up">
+      <div>
+        <p class="about-label">Who I am</p>
+        <h2 class="about-heading">A mind that can't stop creating.</h2>
+        <p class="about-body">
+          Abbi (Abdulkadir Dogan), a university student with too many
+          creative hobbies — <em>writing</em>, <strong>podcasting</strong>,
+          running. Often described as a creative maniac who wants to show
+          the world the life outside of their phones, their
+          <span class="accent-text">unscrolled self.</span>
+        </p>
+      </div>
+      <div class="about-link-wrap fade-up" style="transition-delay:0.3s">
+        <a href="about.html" class="about-link">
+          About Abbi <span class="arr">→</span>
+        </a>
+      </div>
     </div>
 
-    <script src="main.js"></script>
+    <div class="about-img-col fade-up" style="transition-delay:0.2s">
+      <div class="about-img-frame">
+        <img src="public/images/just_me.png" alt="Abbi — Abdulkadir Dogan" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Portfolio ─────────────────────────────────────────────── -->
+<section class="portfolio-section">
+
+  <div class="portfolio-header fade-up">
+    <p class="portfolio-label">Creative Work</p>
+    <h2 class="portfolio-heading">Things I make.</h2>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <!-- no distraction. -->
+    <div class="portfolio-grid-item fade-in" style="transition-delay:0ms">
+      <a href="nodistraction.html" class="portfolio-card has-video">
+        <div class="card-bg"></div>
+        <div class="card-logo-wrap">
+          <img src="public/images/nodistractionlogo.png" alt="no distraction." />
+        </div>
+        <video class="card-video" muted loop playsinline preload="none"
+               src="public/video/nodistraction_preview.mp4"></video>
+        <span class="card-arrow">→</span>
+        <div class="card-bar"></div>
+      </a>
+    </div>
+
+    <!-- unscrolled -->
+    <div class="portfolio-grid-item fade-in" style="transition-delay:120ms">
+      <a href="unscrolled.html" class="portfolio-card has-video">
+        <div class="card-bg"></div>
+        <div class="card-logo-wrap">
+          <img src="public/images/unscrolledlogo.png" alt="unscrolled" />
+        </div>
+        <video class="card-video" muted loop playsinline preload="none"
+               src="public/video/unscrolled_preview.mp4"></video>
+        <span class="card-arrow">→</span>
+        <div class="card-bar"></div>
+      </a>
+    </div>
+
+    <!-- antiletter -->
+    <div class="portfolio-grid-item fade-in" style="transition-delay:240ms">
+      <a href="antiletter.html" class="portfolio-card has-video">
+        <div class="card-bg"></div>
+        <div class="card-logo-wrap">
+          <img src="public/images/antiletterlogo.png" alt="antiletter" />
+        </div>
+        <video class="card-video" muted loop playsinline preload="none"
+               src="public/video/antiletter_preview.mp4"></video>
+        <span class="card-arrow">→</span>
+        <div class="card-bar"></div>
+      </a>
+    </div>
+
+    <!-- coming soon -->
+    <div class="portfolio-grid-item fade-in" style="transition-delay:360ms">
+      <a href="#" class="portfolio-card no-link">
+        <div class="card-bg"></div>
+        <div class="card-coming-soon">
+          <span>coming soon</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Timeline ───────────────────────────────────────────────── -->
+<section class="timeline-section">
+
+  <div class="timeline-header fade-up">
+    <p class="timeline-tag">Beginnings</p>
+    <h2 class="timeline-main-h">
+      I should <span class="ital-accent">never</span> be
+      where I am now.
+    </h2>
+  </div>
+
+  <!-- 2005 -->
+  <div class="timeline-entry">
+    <div class="tl-line"></div>
+    <div class="tl-year-badge"><span>2005</span></div>
+    <div class="tl-inner">
+      <div class="tl-img-col img-left fade-left">
+        <div class="tl-img-frame">
+          <img src="public/images/timeline_2005.jpg" alt="2005 — born in Germany" />
+        </div>
+      </div>
+      <div class="tl-text-col txt-right fade-up">
+        <span class="tl-year-mobile">2005</span>
+        <p class="tl-text">
+          I was born in <span class="t-dm">Germany</span>,
+          but my parents are both <span class="t-dm">Turkish</span>.
+          My mom's great-great-grandfather built the Deutsche Bahn, my
+          father was a general. Now I was here —
+          <span class="t-pf-acc">first of the new generation.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2014 -->
+  <div class="timeline-entry">
+    <div class="tl-line"></div>
+    <div class="tl-year-badge"><span>2014</span></div>
+    <div class="tl-inner">
+      <div class="tl-img-col img-right fade-right">
+        <div class="tl-img-frame">
+          <img src="public/images/timeline_2014.jpg" alt="2014 — the accident" />
+        </div>
+      </div>
+      <div class="tl-text-col txt-left fade-up">
+        <span class="tl-year-mobile">2014</span>
+        <p class="tl-text">
+          I ran across the street, and the moment after I woke up from a
+          <span class="t-dm-acc">coma.</span>
+          The car accident that caused my family so many nerves — but it turns
+          out to be the <strong>best thing</strong> that ever happened to me.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 -->
+  <div class="timeline-entry">
+    <div class="tl-line"></div>
+    <div class="tl-year-badge"><span>2023</span></div>
+    <div class="tl-inner">
+      <div class="tl-img-col img-left fade-left">
+        <div class="tl-img-frame">
+          <img src="public/images/timeline_2023.jpg" alt="2023 — the shift" />
+        </div>
+      </div>
+      <div class="tl-text-col txt-right fade-up">
+        <span class="tl-year-mobile">2023</span>
+        <p class="tl-text">
+          I sat at the shoulder press in my old gym, listening to my favorite
+          podcast — and all of a sudden my mind shifted from
+          <span class="t-pf-60">consuming</span> to
+          <span class="t-dm-med">creating.</span>
+          <br />
+          <span class="t-pf-80">The rest is history...</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-bottom">
+    <div class="tl-connector"></div>
+    <a href="about.html" class="tl-story-btn">
+      Full story <span class="arr">→</span>
+    </a>
+  </div>
+
+</section>
+
+<!-- ── Newsletter ─────────────────────────────────────────────── -->
+<section class="newsletter-section">
+  <div class="newsletter-glow"></div>
+  <div class="newsletter-content">
+    <div class="newsletter-logo">
+      <img src="public/images/antilettertransparent.png" alt="Anti Letter" />
+    </div>
+    <h2 class="newsletter-h">
+      your mind isn't meant to consume <span class="pink">boring shit</span>
+    </h2>
+    <a href="antiletter.html" class="newsletter-cta">
+      Read Anti Letter <span class="arr">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── Social Links ───────────────────────────────────────────── -->
+<section class="social-section">
+  <div class="social-inner">
+
+    <a href="https://abbidogan.substack.com" target="_blank" rel="noopener noreferrer"
+       aria-label="Substack" class="social-link">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+      </svg>
+    </a>
+
+    <a href="https://youtube.com/@abbidogan" target="_blank" rel="noopener noreferrer"
+       aria-label="YouTube" class="social-link">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+    </a>
+
+    <a href="https://instagram.com/abbidogan" target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram" class="social-link">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+      </svg>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-text">
+      Abdulkadir Dogan<span class="footer-dot">·</span>2026
+    </p>
+    <a href="impressum.html" class="footer-link">Impressum</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/portfolio.js"></script>
 </body>
 </html>

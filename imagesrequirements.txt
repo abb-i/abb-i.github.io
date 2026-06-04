@@ -1,0 +1,105 @@
+IMAGES & MEDIA REQUIRED — ABBI PERSONAL WEBSITE
+================================================
+Place all files in the paths listed below (relative to the project root).
+
+────────────────────────────────────────────────
+HERO SECTION
+────────────────────────────────────────────────
+Path:   public/video/hero.mp4
+What:   A looping personal video of you for the hero background.
+Notes:  10–30 seconds ideal. Horizontal (landscape) orientation preferred.
+        Will be overlaid over the site background color until added.
+        Compress for web — aim for < 10 MB.
+
+────────────────────────────────────────────────
+ABOUT SECTION
+────────────────────────────────────────────────
+Path:   public/images/just_me.png
+What:   A photo of you with the background fully removed (transparent PNG).
+Notes:  Waist-up or full-body works. Natural, relaxed pose preferred.
+        Minimum 600 × 800 px. PNG with alpha channel (transparent bg).
+
+────────────────────────────────────────────────
+PORTFOLIO GRID — LOGOS
+────────────────────────────────────────────────
+Path:   public/images/nodistractionlogo.png
+What:   Logo or cover artwork for "no distraction." podcast.
+Notes:  Square format recommended (1:1 ratio). Min 800 × 800 px.
+
+Path:   public/images/unscrolledlogo.png
+What:   Logo or cover artwork for the "unscrolled" project.
+Notes:  Square format recommended (1:1 ratio). Min 800 × 800 px.
+
+Path:   public/images/antiletterlogo.png
+What:   Logo or cover artwork for "antiletter" newsletter.
+Notes:  Square format recommended (1:1 ratio). Min 800 × 800 px.
+        ALSO used in the footer logo row.
+
+────────────────────────────────────────────────
+PORTFOLIO GRID — HOVER PREVIEW VIDEOS
+────────────────────────────────────────────────
+These 5-second videos play when a user hovers over each portfolio card.
+They should feel like a quick, cinematic teaser for each project.
+
+Path:   public/video/nodistraction_preview.mp4
+What:   ~5 second preview clip for "no distraction." podcast.
+Notes:  Could be a clip of you recording, the logo animating, or a scene
+        that captures the podcast vibe. Vertical or square works best.
+        Compress for web — aim for < 5 MB. Loop point should feel seamless.
+
+Path:   public/video/unscrolled_preview.mp4
+What:   ~5 second preview clip for the "unscrolled" project.
+Notes:  Something that conveys phone-free living, nature, or focus.
+        Compress for web — aim for < 5 MB.
+
+Path:   public/video/antiletter_preview.mp4
+What:   ~5 second preview clip for "antiletter" newsletter.
+Notes:  Could be writing, reading, a typewriter, or the logo in motion.
+        Compress for web — aim for < 5 MB.
+
+────────────────────────────────────────────────
+NEWSLETTER SECTION
+────────────────────────────────────────────────
+Path:   public/images/antilettertransparent.png
+What:   The antiletter logo on a fully transparent background.
+Notes:  PNG with alpha channel. The logo will show on the dark red (#820A00)
+        newsletter background, so make sure it has no white/colored bg.
+        Same dimensions as antiletterlogo.png preferred (square, min 400px).
+
+────────────────────────────────────────────────
+TIMELINE SECTION
+────────────────────────────────────────────────
+Path:   public/images/timeline_2005.jpg   (or .png)
+What:   A photo representing 2005 — your birth year.
+Notes:  Could be a childhood photo, family photo, or something symbolic
+        of that era. Landscape orientation works best (4:3 ratio).
+
+Path:   public/images/timeline_2014.jpg   (or .png)
+What:   A photo representing 2014 — the car accident period.
+Notes:  Could be a photo from that year, a recovery image, or something
+        symbolic. Landscape orientation works best (4:3 ratio).
+
+Path:   public/images/timeline_2023.jpg   (or .png)
+What:   A photo representing 2023 — the gym/mindset shift moment.
+Notes:  Could be a gym photo, a photo of you from that period,
+        or something related to the moment you decided to create.
+        Landscape orientation works best (4:3 ratio).
+
+════════════════════════════════════════════════
+SUMMARY (quick reference)
+════════════════════════════════════════════════
+public/
+├── video/
+│   ├── hero.mp4                         ← looping hero background video
+│   ├── nodistraction_preview.mp4        ← 5s hover preview for portfolio card
+│   ├── unscrolled_preview.mp4           ← 5s hover preview for portfolio card
+│   └── antiletter_preview.mp4           ← 5s hover preview for portfolio card
+└── images/
+    ├── just_me.png                      ← you, background removed
+    ├── nodistractionlogo.png            ← podcast logo (portfolio + footer)
+    ├── unscrolledlogo.png               ← unscrolled logo (portfolio + footer)
+    ├── antiletterlogo.png               ← antiletter logo (portfolio + footer)
+    ├── antilettertransparent.png        ← antiletter logo, transparent bg (newsletter)
+    ├── timeline_2005.jpg                ← 2005 timeline image
+    ├── timeline_2014.jpg                ← 2014 timeline image
+    └── timeline_2023.jpg                ← 2023 timeline image
