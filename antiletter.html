@@ -4,15 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anti Letter — Abbi</title>
-  <meta name="description" content="your mind isn't meant to consume boring shit. Subscribe and read something worth your time." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <meta name="description" content="your mind isn't meant to consume boring shit. A newsletter about attention, taste, and the life outside your phone." />
+  <meta property="og:title" content="Anti Letter" />
+  <meta property="og:description" content="your mind isn't meant to consume boring shit." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#820a00" />
+  <!-- No web fonts by design: system serif + system mono only, so this
+       page makes zero third-party requests. -->
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/antiletter.css" />
 </head>
-<body>
+<body class="antiletter-body">
 
+<div class="al-grain" aria-hidden="true"></div>
+<div class="al-frame" aria-hidden="true"></div>
+<span class="al-margin-note" aria-hidden="true">your mind isn't meant to consume boring shit</span>
+
+<!-- ── Navbar ─────────────────────────────────────────────────── -->
 <nav id="navbar" class="navbar">
   <div class="navbar-inner">
     <a href="index.html" class="navbar-logo">ABBI</a>
@@ -24,32 +33,207 @@
   </div>
 </nav>
 
+<!-- ── Menu overlay ───────────────────────────────────────────── -->
 <div id="menu-overlay" class="menu-overlay">
   <nav class="menu-nav">
     <a href="about.html"         style="animation-delay:0ms">About</a>
     <a href="nodistraction.html" style="animation-delay:60ms">No Distraction</a>
     <a href="antiletter.html"    style="animation-delay:120ms">Anti Letter</a>
-    <a href="unscrolled.html"    style="animation-delay:180ms">Unscrolled</a>
+    <a href="miru.html"          style="animation-delay:180ms">Miru</a>
     <a href="impressum.html"     style="animation-delay:240ms">Impressum</a>
   </nav>
 </div>
 
-<main class="page-main">
-  <img src="public/images/antiletterlogo.png" alt="Anti Letter" class="logo-20" />
-  <span class="page-label">Newsletter</span>
-  <h1 class="page-title">Anti Letter</h1>
-  <p class="page-body" style="margin-bottom:2.5rem">
-    your mind isn't meant to consume boring shit. Subscribe and read
-    something worth your time.
-  </p>
-  <a href="https://abbidogan.substack.com" target="_blank" rel="noopener noreferrer"
-     class="subscribe-btn">Subscribe →</a>
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<header class="al-hero">
+
+  <!-- the crease of an opened envelope -->
+  <svg class="al-flap" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0 L50 9.2 L100 0" fill="none" stroke="currentColor"
+          stroke-width="1" vector-effect="non-scaling-stroke" />
+  </svg>
+
+  <!-- struck across the page, as if it had been through the post -->
+  <svg class="al-postmark" viewBox="0 0 200 200" aria-hidden="true">
+    <defs>
+      <path id="pm-arc" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0" />
+    </defs>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="2.5" />
+    <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1" />
+    <text class="pm-arc">
+      <textPath href="#pm-arc" startOffset="0">
+        &#183; anti letter &#183; a newsletter by abbi &#183; anti letter &#183;
+      </textPath>
+    </text>
+    <text class="pm-mono" x="100" y="104">AL</text>
+    <text class="pm-sub" x="100" y="130">no filler</text>
+  </svg>
+
+  <div class="al-wrap">
+
+    <div class="al-masthead">
+      <div class="al-rule-thick"></div>
+      <div class="al-dateline">
+        <span class="side">A newsletter</span>
+        <span class="mid">by Abdulkadir Dogan</span>
+        <span class="side">Delivered by Substack</span>
+      </div>
+      <div class="al-rule-thin"></div>
+    </div>
+
+    <img src="public/images/antilettertransparent.png" alt="" class="al-hero-mark" aria-hidden="true" />
+
+    <h1 class="al-title">anti<em>letter</em></h1>
+
+    <p class="al-standfirst">
+      your mind isn't meant to consume <span class="hl">boring shit.</span>
+    </p>
+
+    <div class="al-hero-foot">
+      <a href="https://abbidogan.substack.com" target="_blank" rel="noopener noreferrer" class="al-btn">
+        Subscribe <span class="arr">&rarr;</span>
+      </a>
+      <span class="al-eyebrow">Free <span class="dot">·</span> No spam <span class="dot">·</span> Unsubscribe whenever</span>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- ── What it is ─────────────────────────────────────────── -->
+  <section class="al-section">
+    <div class="al-wrap">
+      <div class="al-section-head">
+        <span class="al-eyebrow">01 <span class="dot">/</span> What it is</span>
+        <h2>A letter against the <em>default</em> way of spending a mind.</h2>
+      </div>
+
+      <div class="al-cols">
+        <div class="al-col al-opening">
+          <span class="al-eyebrow">The premise</span>
+          <p>
+            Most of what reaches you was built to be finished, not to be
+            remembered. Anti Letter is the other kind of reading — the sort
+            that costs you ten minutes and stays for a month.
+          </p>
+        </div>
+        <div class="al-col">
+          <span class="al-eyebrow">The subjects</span>
+          <p>
+            Attention and who owns it. Taste, and the fact that you rent yours.
+            Discipline that survives past February. The life that's still
+            waiting outside the screen.
+          </p>
+        </div>
+        <div class="al-col">
+          <span class="al-eyebrow">The rhythm</span>
+          <p>
+            Roughly weekly, when there's something worth the send. Sometimes an
+            essay, sometimes a conversation. Never a newsletter about
+            newsletters.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Selected pieces ────────────────────────────────────────
+       Hand-picked, hand-linked. To swap one out, edit the three
+       fields below — number, title, one-line summary, date, href.
+       Nothing here is fetched, generated or tracked.
+       ───────────────────────────────────────────────────────── -->
+  <section class="al-section">
+    <div class="al-wrap">
+      <div class="al-section-head">
+        <span class="al-eyebrow">02 <span class="dot">/</span> Selected</span>
+        <h2>Three to start with.</h2>
+      </div>
+
+      <div class="al-index">
+        <!-- SELECTED:START — everything between these markers is rewritten by
+             scripts/update-antiletter.py. Hand-edit if you prefer; the script
+             will simply overwrite it next time it runs. -->
+        <a class="al-entry" href="https://abbidogan.substack.com/p/the-last-distraction-that-doesnt"
+           target="_blank" rel="noopener noreferrer">
+          <div class="al-entry-grid">
+            <span class="al-num">&#8470; 01</span>
+            <div>
+              <h3>The last distraction that doesn&#x27;t eat you</h3>
+              <p>The useless deep dive you feel guilty about is the last part of your attention still your own.</p>
+            </div>
+            <span class="al-entry-meta">
+              Jul 2026
+              <span class="go">Read &rarr;</span>
+            </span>
+          </div>
+        </a>
+
+        <a class="al-entry" href="https://abbidogan.substack.com/p/how-to-become-dangerously-hard-to"
+           target="_blank" rel="noopener noreferrer">
+          <div class="al-entry-grid">
+            <span class="al-num">&#8470; 02</span>
+            <div>
+              <h3>How to become dangerously hard to distract</h3>
+              <p>The reset that lowers your baseline, and the layer that holds it.</p>
+            </div>
+            <span class="al-entry-meta">
+              Jun 2026
+              <span class="go">Read &rarr;</span>
+            </span>
+          </div>
+        </a>
+
+        <a class="al-entry" href="https://abbidogan.substack.com/p/youre-renting-your-taste-and-you"
+           target="_blank" rel="noopener noreferrer">
+          <div class="al-entry-grid">
+            <span class="al-num">&#8470; 03</span>
+            <div>
+              <h3>You&#x27;re renting Your taste, and You don&#x27;t know the landlord.</h3>
+              <p>The same force picks your jeans and empties your bank account.</p>
+            </div>
+            <span class="al-entry-meta">
+              Jun 2026
+              <span class="go">Read &rarr;</span>
+            </span>
+          </div>
+        </a>
+        <!-- SELECTED:END -->
+      </div>
+
+      <div class="al-hero-foot">
+        <a href="https://abbidogan.substack.com/archive" target="_blank" rel="noopener noreferrer"
+           class="al-btn al-btn-ghost">
+          The full archive <span class="arr">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Closing ────────────────────────────────────────────── -->
+  <div class="al-perf" aria-hidden="true"><span>tear here</span></div>
+
+  <section class="al-closing al-after-perf">
+    <div class="al-wrap">
+      <h2>Read something <em>worth</em> your time.</h2>
+      <div class="al-hero-foot">
+        <a href="https://abbidogan.substack.com" target="_blank" rel="noopener noreferrer" class="al-btn">
+          Subscribe <span class="arr">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- ── Footer ─────────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-inner">
     <p class="footer-text">Abdulkadir Dogan<span class="footer-dot">·</span>2026</p>
-    <a href="impressum.html" class="footer-link">Impressum</a>
+    <div class="footer-links">
+      <a href="impressum.html" class="footer-link">Impressum</a>
+      <a href="impressum.html#datenschutz" class="footer-link">Datenschutz</a>
+    </div>
   </div>
 </footer>
 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miru — Abbi</title>
+  <meta name="description" content="Miru is a browser extension for quieter browsing. A brief guided breath before the places that pull at you, calmer feeds inside, and nothing ever leaving your device." />
+  <meta property="og:title" content="Miru — browse with intention" />
+  <meta property="og:description" content="A breath before every new place. A browser extension for Chrome and Firefox." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#f7f5ef" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/miru.css" />
+</head>
+<body class="miru-body">
+
+<!-- ── Navbar ─────────────────────────────────────────────────── -->
+<nav id="navbar" class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">ABBI</a>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Menu overlay ───────────────────────────────────────────── -->
+<div id="menu-overlay" class="menu-overlay">
+  <nav class="menu-nav">
+    <a href="about.html"         style="animation-delay:0ms">About</a>
+    <a href="nodistraction.html" style="animation-delay:60ms">No Distraction</a>
+    <a href="antiletter.html"    style="animation-delay:120ms">Anti Letter</a>
+    <a href="miru.html"          style="animation-delay:180ms">Miru</a>
+    <a href="impressum.html"     style="animation-delay:240ms">Impressum</a>
+  </nav>
+</div>
+
+<!-- ── Hero ───────────────────────────────────────────────────
+     STORE LINKS: the two install buttons appear here and again in
+     the closing section. Four hrefs in total — search this file for
+     CHROME_STORE_URL / FIREFOX_STORE_URL to swap them in.
+     ─────────────────────────────────────────────────────────── -->
+<header class="miru-hero">
+  <div class="miru-hero-glow" aria-hidden="true"></div>
+
+  <div class="miru-mark" aria-hidden="true">
+    <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="fern-ghost" d="M24 28 C24 28 24 20 28 16 C32 12 36 14 36 20 C36 28 30 36 22 40 C14 44 10 40 12 34 C14 26 20 18 28 14 C36 10 42 14 42 22 C42 32 36 42 26 48"
+            stroke-width="1.6" stroke-linecap="round" fill="none" />
+      <path class="fern-live"  d="M24 28 C24 28 24 20 28 16 C32 12 36 14 36 20 C36 28 30 36 22 40 C14 44 10 40 12 34 C14 26 20 18 28 14 C36 10 42 14 42 22 C42 32 36 42 26 48"
+            stroke-width="1.6" stroke-linecap="round" fill="none" />
+    </svg>
+  </div>
+
+  <h1 class="miru-wordmark">miru</h1>
+  <p class="miru-etymology">Japanese — <i>to see, to look, to watch.</i></p>
+
+  <p class="miru-tagline">Browse with intention.<br /><span class="miru-em">A breath before every new place.</span></p>
+
+  <p class="miru-hero-body">
+    A browser extension for quieter browsing. Instead of walls and alarms, Miru
+    places a brief guided breath in front of your habits — a moment to notice
+    where you're going before you arrive.
+  </p>
+
+  <div class="miru-cta-row">
+    <!-- CHROME_STORE_URL -->
+    <a href="https://chromewebstore.google.com/detail/jjakooglkmfbfladjdcocbfcjehcilho"
+       target="_blank" rel="noopener noreferrer" class="miru-btn miru-btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0a12 12 0 0 1 10.39 6H12a6 6 0 0 0-5.66 4.01L2.63 3.6A12 12 0 0 1 12 0zM1.55 5.68 6.7 14.6a6 6 0 0 0 6.62 2.9l-4.24 6.14A12 12 0 0 1 1.55 5.68zM23.4 8a12 12 0 0 1-11.28 16l5.2-9A6 6 0 0 0 17.66 8h5.74zM12 16.2A4.2 4.2 0 1 1 12 7.8a4.2 4.2 0 0 1 0 8.4z"/>
+      </svg>
+      Add to Chrome
+    </a>
+    <!-- FIREFOX_STORE_URL -->
+    <a href="https://addons.mozilla.org/firefox/addon/miru/"
+       target="_blank" rel="noopener noreferrer" class="miru-btn miru-btn-ghost">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 1.6a8.4 8.4 0 0 1 6.7 3.33 5.5 5.5 0 0 0-1.62-1.1c.5.75.8 1.62.85 2.52v.04a4.7 4.7 0 0 0-1.9-2.3 6.2 6.2 0 0 0-3.2-1.06 5 5 0 0 0-3.2.9 3.5 3.5 0 0 0-1.5 2.2c-.7-.03-1.4.14-2 .5a2.9 2.9 0 0 0-1.2 1.4c.35-.24.75-.4 1.17-.45-.5.5-.86 1.13-1.03 1.82a8.4 8.4 0 0 1 6.93-7.8zM19.6 9.4c.5 1.1.7 2.32.6 3.53a6.86 6.86 0 0 1-2.4 4.72 8.4 8.4 0 0 1-9.9.8 6 6 0 0 0 4.3-.5 4.6 4.6 0 0 0 2.2-2.3 3.3 3.3 0 0 0-.1-2.8 2.9 2.9 0 0 0-1.9-1.5 2.3 2.3 0 0 0-2 .5 1.8 1.8 0 0 0-.6 1.7c.1.5.4.9.9 1.1a1.3 1.3 0 0 0 1.3-.2c-.3.5-.9.8-1.5.8a2 2 0 0 1-1.7-1 2.6 2.6 0 0 1-.2-2.3 3.4 3.4 0 0 1 2-1.9 5 5 0 0 1 3.6.1 6.4 6.4 0 0 1 3 2.4 5.6 5.6 0 0 0 .5-3.5 5 5 0 0 0-.6-1.6c.9.5 1.6 1.2 2 2.1z"/>
+      </svg>
+      Add to Firefox
+    </a>
+  </div>
+
+  <p class="miru-cta-note">
+    Free and open source — <a href="https://github.com/abb-i/miru" target="_blank" rel="noopener noreferrer">read every line on GitHub</a>.
+  </p>
+
+  <div class="miru-scroll-hint" aria-hidden="true">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Why ────────────────────────────────────────────────── -->
+  <section class="miru-section">
+    <div class="miru-wrap">
+      <div class="miru-section-head">
+        <p class="miru-label">Why it exists</p>
+        <h2 class="miru-h2">The web is a current;<br />it carries whoever doesn't choose.</h2>
+        <p class="miru-lead">
+          Most tools that promise focus shout at you — timers, walls, guilt.
+          Miru does the opposite. It slows the doorway just enough for you to
+          notice you're walking through it, then <span class="miru-em">leaves the choice with you.</span>
+        </p>
+      </div>
+      <div class="miru-list">
+        <div class="miru-list-row">
+          <h3>You name the places</h3>
+          <p>
+            Only the sites that actually pull at you get a posture. Everything
+            unlisted loads untouched — checkouts, banks, work, the things you
+            came to the browser to do.
+          </p>
+        </div>
+        <div class="miru-list-row">
+          <h3>No walls, no scolding</h3>
+          <p>
+            Even the strictest posture is a calm page, not a lecture — and never
+            a dead end. Miru assumes you're an adult who occasionally wants a
+            different answer than the one you set last week.
+          </p>
+        </div>
+        <div class="miru-list-row">
+          <h3>A garden, not a lockdown</h3>
+          <p>
+            The goal isn't less internet. It's an internet you tend on purpose:
+            fewer accidental arrivals, quieter rooms once you're inside, and
+            evenings that come back to you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Postures ───────────────────────────────────────────── -->
+  <section class="miru-section">
+    <div class="miru-wrap">
+      <div class="miru-section-head">
+        <p class="miru-label">The three postures</p>
+        <h2 class="miru-h2">How Miru meets you at the door.</h2>
+        <p class="miru-lead">Give each site you name one of three postures. Retune any of them, any time.</p>
+      </div>
+
+      <div class="miru-postures">
+
+        <article class="miru-posture">
+          <div class="miru-posture-icon">
+            <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24 28 C24 28 24 20 28 16 C32 12 36 14 36 20 C36 28 30 36 22 40 C14 44 10 40 12 34 C14 26 20 18 28 14 C36 10 42 14 42 22 C42 32 36 42 26 48"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <h3>Breathe</h3>
+          <p>
+            Before you land there, an unfurling fern guides <strong>one calm
+            breath</strong>. Then you choose: continue, or go back. That's the
+            whole intervention — a few seconds between the impulse and the feed.
+          </p>
+        </article>
+
+        <article class="miru-posture">
+          <div class="miru-posture-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2 9c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 15c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Calm</h3>
+          <p>
+            The breath, and a <strong>quieter room behind it</strong>. YouTube
+            strips back to text — no thumbnails, recommendations, comments or
+            Shorts, while search and the video you came for keep working. On
+            Instagram the feed, Reels and Explore rest; stories, messages,
+            search and profiles don't. Spend 15 minutes on a calmed site in a
+            day and it fades to grayscale for the rest of it.
+          </p>
+        </article>
+
+        <article class="miru-posture">
+          <div class="miru-posture-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M8.5 12h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Block</h3>
+          <p>
+            A calm page, not a scolding one — and still not a dead end. Up to
+            <strong>three times a day</strong> you can choose to stay five
+            minutes, landing in the calm room where one exists. When the time is
+            up, the block quietly returns.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Around the postures ────────────────────────────────── -->
+  <section class="miru-section">
+    <div class="miru-wrap">
+      <div class="miru-section-head">
+        <p class="miru-label">Around them</p>
+        <h2 class="miru-h2">Rhythms for the rest of the day.</h2>
+      </div>
+      <div class="miru-list">
+        <div class="miru-list-row">
+          <h3>Focus sessions</h3>
+          <p>
+            Begin 25 or 50 minutes straight from the popup. If you like, blocking
+            holds only while a session is running — strict when you're working,
+            open when you're not.
+          </p>
+        </div>
+        <div class="miru-list-row">
+          <h3>Periodic breath &amp; time mirror</h3>
+          <p>
+            A soft reminder to surface after a while, and a gentle notice when
+            you've been in one place a long time. Breaths appear as a calm
+            overlay on the page you're already on, at a natural pause — a tab
+            switch, a finished navigation — never as another window cutting in.
+          </p>
+        </div>
+        <div class="miru-list-row">
+          <h3>Night mode</h3>
+          <p>
+            During your night hours the web loses its color. Everything still
+            works, in quiet grayscale, easing you toward rest instead of
+            slamming a door on it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy ────────────────────────────────────────────── -->
+  <section class="miru-section">
+    <div class="miru-wrap">
+      <div class="miru-privacy">
+        <p class="miru-label">Privacy</p>
+        <h2 class="miru-h2">Don't take my word for it.</h2>
+        <ul>
+          <li><strong>No data leaves your device.</strong> No servers, no analytics, no tracking, no cookies, no remote code. Even the fonts are bundled.</li>
+          <li><strong>Settings sync, history doesn't.</strong> Per-site time totals stay in local storage on your machine and are deleted after 14 days.</li>
+          <li><strong>Nothing reads your pages.</strong> The breathing overlay is drawn by Miru's own bundled script; calm mode hides elements with bundled CSS. Neither reads a word of what's on screen.</li>
+          <li><strong>The repository is public.</strong> Miru is licensed under the GPL-3.0 — use it, study it, build on it.</li>
+        </ul>
+        <p class="miru-cta-note" style="margin-top:2rem">
+          <a href="https://github.com/abb-i/miru" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/abb-i/miru/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">Privacy policy</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Closing CTA ────────────────────────────────────────── -->
+  <section class="miru-closing">
+    <div class="miru-wrap">
+      <h2 class="miru-h2">One breath, and the web is<br /><span class="miru-em">a garden again.</span></h2>
+      <div class="miru-cta-row">
+        <!-- CHROME_STORE_URL -->
+        <a href="https://chromewebstore.google.com/detail/jjakooglkmfbfladjdcocbfcjehcilho"
+           target="_blank" rel="noopener noreferrer" class="miru-btn miru-btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0a12 12 0 0 1 10.39 6H12a6 6 0 0 0-5.66 4.01L2.63 3.6A12 12 0 0 1 12 0zM1.55 5.68 6.7 14.6a6 6 0 0 0 6.62 2.9l-4.24 6.14A12 12 0 0 1 1.55 5.68zM23.4 8a12 12 0 0 1-11.28 16l5.2-9A6 6 0 0 0 17.66 8h5.74zM12 16.2A4.2 4.2 0 1 1 12 7.8a4.2 4.2 0 0 1 0 8.4z"/>
+          </svg>
+          Add to Chrome
+        </a>
+        <!-- FIREFOX_STORE_URL -->
+        <a href="https://addons.mozilla.org/firefox/addon/miru/"
+           target="_blank" rel="noopener noreferrer" class="miru-btn miru-btn-ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 1.6a8.4 8.4 0 0 1 6.7 3.33 5.5 5.5 0 0 0-1.62-1.1c.5.75.8 1.62.85 2.52v.04a4.7 4.7 0 0 0-1.9-2.3 6.2 6.2 0 0 0-3.2-1.06 5 5 0 0 0-3.2.9 3.5 3.5 0 0 0-1.5 2.2c-.7-.03-1.4.14-2 .5a2.9 2.9 0 0 0-1.2 1.4c.35-.24.75-.4 1.17-.45-.5.5-.86 1.13-1.03 1.82a8.4 8.4 0 0 1 6.93-7.8zM19.6 9.4c.5 1.1.7 2.32.6 3.53a6.86 6.86 0 0 1-2.4 4.72 8.4 8.4 0 0 1-9.9.8 6 6 0 0 0 4.3-.5 4.6 4.6 0 0 0 2.2-2.3 3.3 3.3 0 0 0-.1-2.8 2.9 2.9 0 0 0-1.9-1.5 2.3 2.3 0 0 0-2 .5 1.8 1.8 0 0 0-.6 1.7c.1.5.4.9.9 1.1a1.3 1.3 0 0 0 1.3-.2c-.3.5-.9.8-1.5.8a2 2 0 0 1-1.7-1 2.6 2.6 0 0 1-.2-2.3 3.4 3.4 0 0 1 2-1.9 5 5 0 0 1 3.6.1 6.4 6.4 0 0 1 3 2.4 5.6 5.6 0 0 0 .5-3.5 5 5 0 0 0-.6-1.6c.9.5 1.6 1.2 2 2.1z"/>
+          </svg>
+          Add to Firefox
+        </a>
+      </div>
+      <p class="miru-cta-note">Chrome, Edge, Brave and Arc via the Chrome Web Store · Firefox via Add-ons</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-text">Abdulkadir Dogan<span class="footer-dot">·</span>2026</p>
+    <div class="footer-links">
+      <a href="impressum.html" class="footer-link">Impressum</a>
+      <a href="impressum.html#datenschutz" class="footer-link">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

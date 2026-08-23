@@ -341,6 +341,9 @@ img, video { display: block; max-width: 100%; }
 }
 .portfolio-header {
   padding: 2.5rem 1.5rem 2rem;
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
 }
 @media (min-width: 768px) { .portfolio-header { padding: 2.5rem 3rem 2rem; } }
 .portfolio-label {
@@ -359,12 +362,20 @@ img, video { display: block; max-width: 100%; }
   line-height: 1.1;
 }
 
+/* Three cards, one row on desktop. Cells are kept square so the square
+   logo art is never cropped, and the whole row is capped so it stays
+   readable (and the logos stay whole) on ultrawide displays. */
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 75vh;
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
 }
-@media (min-width: 768px) { .portfolio-grid { grid-template-columns: repeat(2,1fr); } }
+.portfolio-grid-item { aspect-ratio: 1 / 1; }
+@media (min-width: 900px) {
+  .portfolio-grid { grid-template-columns: repeat(3,1fr); }
+}
 
 .portfolio-card {
   position: relative;
@@ -385,7 +396,7 @@ img, video { display: block; max-width: 100%; }
 }
 .card-logo-wrap img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .portfolio-card.has-video:hover .card-logo-wrap { opacity: 0; }
 
@@ -725,6 +736,7 @@ img, video { display: block; max-width: 100%; }
 .footer-dot  { color: rgba(237,235,230,0.3); margin: 0 0.375rem; }
 .footer-link { font-family: var(--font-inter); font-size: 0.875rem; color: var(--muted); transition: color 0.2s; }
 .footer-link:hover { color: var(--ink); }
+.footer-links { display: flex; align-items: center; gap: 1.5rem; }
 
 /* ── Sub-page layouts ───────────────────────────────────────── */
 .page-main {
@@ -770,6 +782,16 @@ img, video { display: block; max-width: 100%; }
 .impressum-content .muted { color: var(--muted); }
 .imp-link { color: var(--accent); }
 .imp-link:hover { text-decoration: underline; }
+.imp-hr { border: 0; height: 1px; background-color: var(--border); margin: 3rem 0 2.5rem; }
+.impressum-content .imp-h1 {
+  font-family: var(--font-dm);
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+}
+.impressum-content p + p { margin-top: 0.75rem; }
+.impressum-content strong { color: var(--ink); font-weight: 600; }
 
 /* Antiletter subscribe */
 .subscribe-btn {
@@ -789,3 +811,79 @@ img, video { display: block; max-width: 100%; }
 
 .logo-32 { width: 8rem; height: 8rem; object-fit: contain; display: block; margin-bottom: 3rem; }
 .logo-20 { width: 5rem; height: 5rem; object-fit: contain; display: block; margin-bottom: 2rem; }
+
+/* ── Miru portfolio card ────────────────────────────────────────
+   The one card that isn't black: Miru brings its own paper and
+   green into the grid. Full page styling lives in css/miru.css.
+   ───────────────────────────────────────────────────────────── */
+.portfolio-card.miru-card .card-bg { background-color: #f7f5ef; }
+.portfolio-card.miru-card .card-bar { background-color: #2da96e; opacity: 1; }
+.portfolio-card.miru-card .card-arrow {
+  color: #1d7a4e;
+  filter: none;
+}
+
+.miru-card-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+  padding: 2rem;
+}
+.miru-card-inner::before {
+  content: "";
+  position: absolute;
+  top: 42%; left: 50%;
+  width: 26rem; height: 26rem;
+  margin: -13rem 0 0 -13rem;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+              rgba(45,169,110,0.16) 0%,
+              rgba(45,169,110,0.05) 45%,
+              rgba(45,169,110,0) 70%);
+  transform: scale(0.85);
+  transition: transform 1.6s ease, opacity 1.6s ease;
+  opacity: 0.7;
+}
+.portfolio-card.miru-card:hover .miru-card-inner::before { transform: scale(1.08); opacity: 1; }
+
+.miru-card-mark {
+  position: relative;
+  width: clamp(2.5rem, 7vw, 4rem);
+  height: auto;
+  aspect-ratio: 48 / 56;
+  overflow: visible;
+}
+.miru-card-mark .ghost { stroke: #2da96e; opacity: 0.16; }
+.miru-card-mark .live  {
+  stroke: #2da96e;
+  stroke-dasharray: 210;
+  stroke-dashoffset: 210;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.37,0,0.28,1) 0.2s;
+}
+/* draws itself once the card scrolls into view — no hover required */
+.portfolio-grid-item.is-visible .miru-card-mark .live { stroke-dashoffset: 0; }
+
+.miru-card-word {
+  position: relative;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  color: #3d3d3a;
+}
+.miru-card-sub {
+  position: relative;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: #888780;
+}

@@ -1,0 +1,343 @@
+/* ── Miru ───────────────────────────────────────────────────────
+   Miru keeps its own weather: warm paper, one deep green, a serif
+   that breathes. Everything here is scoped to .miru-body so the
+   rest of the site stays black-and-orange.
+   ───────────────────────────────────────────────────────────── */
+
+.miru-body {
+  --m-green-deep:    #0f4a2e;
+  --m-green-dark:    #1d7a4e;
+  --m-green:         #2da96e;
+  --m-green-light:   #7dd4a8;
+  --m-green-pale:    #d6f2e6;
+
+  --m-bg:      #f7f5ef;
+  --m-card:    #ffffff;
+  --m-surface: #ede9df;
+  --m-text:    #3d3d3a;
+  --m-muted:   #888780;
+  --m-border:  #ddd9cd;
+
+  --m-serif: "Cormorant Garamond", Georgia, serif;
+  --m-sans:  "DM Sans", system-ui, sans-serif;
+
+  background-color: var(--m-bg);
+  color: var(--m-text);
+  font-family: var(--m-sans);
+  font-weight: 300;
+}
+
+.miru-body ::selection { background: var(--m-green-pale); color: var(--m-green-deep); }
+.miru-body ::-webkit-scrollbar-track { background: var(--m-bg); }
+.miru-body ::-webkit-scrollbar-thumb { background: var(--m-border); }
+.miru-body ::-webkit-scrollbar-thumb:hover { background: var(--m-green); }
+
+/* ── Navbar / menu, re-tuned for paper ──────────────────────── */
+.miru-body .navbar-logo { color: var(--m-text); }
+.miru-body .hamburger-line { background-color: var(--m-text); }
+.miru-body .navbar.navbar-scrolled {
+  background-color: rgba(247,245,239,0.88);
+  border-bottom: 1px solid var(--m-border);
+}
+.miru-body .menu-overlay { background-color: rgba(247,245,239,0.96); }
+.miru-body .menu-nav a {
+  font-family: var(--m-serif);
+  font-weight: 300;
+  color: var(--m-text);
+  letter-spacing: 0.02em;
+}
+.miru-body .menu-nav a:hover { color: var(--m-green-dark); }
+
+/* ── Shared bits ────────────────────────────────────────────── */
+.miru-wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+@media (min-width: 768px) { .miru-wrap { padding: 0 3rem; } }
+
+.miru-label {
+  font-family: var(--m-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--m-muted);
+  margin-bottom: 1.25rem;
+}
+
+.miru-h2 {
+  font-family: var(--m-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.2;
+  color: var(--m-text);
+  letter-spacing: 0.005em;
+}
+
+.miru-lead {
+  font-family: var(--m-serif);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--m-muted);
+  max-width: 34rem;
+}
+
+.miru-em { font-style: italic; color: var(--m-green-dark); }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.miru-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1.5rem 5rem;
+  overflow: hidden;
+}
+
+/* the slow light behind the mark — one breath, twelve seconds */
+.miru-hero-glow {
+  position: absolute;
+  top: 34%; left: 50%;
+  width: 46rem; height: 46rem;
+  margin: -23rem 0 0 -23rem;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+              rgba(45,169,110,0.16) 0%,
+              rgba(45,169,110,0.06) 42%,
+              rgba(45,169,110,0) 68%);
+  animation: miruBreathe 12s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes miruBreathe {
+  0%, 100% { transform: scale(0.86); opacity: 0.55; }
+  33%      { transform: scale(1.06); opacity: 1; }
+  60%      { transform: scale(1.02); opacity: 0.9; }
+}
+
+.miru-mark {
+  position: relative;
+  width: 5rem;
+  height: 5.85rem;
+  margin-bottom: 1.75rem;
+}
+.miru-mark svg { width: 100%; height: 100%; overflow: visible; }
+.miru-mark .fern-ghost { stroke: var(--m-green); opacity: 0.14; }
+.miru-mark .fern-live  {
+  stroke: var(--m-green);
+  opacity: 0.95;
+  stroke-dasharray: 210;
+  stroke-dashoffset: 210;
+  animation: miruDraw 12s cubic-bezier(0.37,0,0.28,1) infinite;
+}
+@keyframes miruDraw {
+  0%       { stroke-dashoffset: 210; }
+  33%, 62% { stroke-dashoffset: 0; }
+  92%, 100%{ stroke-dashoffset: 210; }
+}
+
+.miru-wordmark {
+  font-family: var(--m-serif);
+  font-weight: 300;
+  font-size: clamp(3.25rem, 11vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  color: var(--m-text);
+  position: relative;
+}
+.miru-etymology {
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  color: var(--m-green-dark);
+  margin-top: 1rem;
+  position: relative;
+}
+.miru-tagline {
+  font-family: var(--m-serif);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  line-height: 1.45;
+  color: var(--m-text);
+  max-width: 30rem;
+  margin: 2.25rem auto 0;
+  position: relative;
+}
+.miru-hero-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--m-muted);
+  max-width: 32rem;
+  margin: 1.5rem auto 0;
+  position: relative;
+}
+
+/* ── Install buttons ────────────────────────────────────────── */
+.miru-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  justify-content: center;
+  margin-top: 2.75rem;
+  position: relative;
+}
+.miru-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--m-sans);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 0.875rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+              color 0.25s ease, transform 0.25s ease;
+}
+.miru-btn svg { width: 1.125rem; height: 1.125rem; flex: none; }
+.miru-btn:hover { transform: translateY(-2px); }
+
+.miru-btn-primary {
+  background-color: var(--m-green);
+  color: #f7f5ef;
+}
+.miru-btn-primary:hover { background-color: var(--m-green-dark); }
+
+.miru-btn-ghost {
+  background-color: transparent;
+  color: var(--m-text);
+  border-color: var(--m-border);
+}
+.miru-btn-ghost:hover {
+  border-color: var(--m-green);
+  color: var(--m-green-dark);
+  background-color: rgba(45,169,110,0.05);
+}
+
+.miru-cta-note {
+  font-size: 0.8125rem;
+  color: var(--m-muted);
+  margin-top: 1.25rem;
+  position: relative;
+}
+.miru-cta-note a { color: var(--m-green-dark); border-bottom: 1px solid rgba(29,122,78,0.3); }
+.miru-cta-note a:hover { border-bottom-color: var(--m-green-dark); }
+
+.miru-scroll-hint {
+  position: absolute;
+  bottom: 2.25rem; left: 50%;
+  transform: translateX(-50%);
+  color: var(--m-muted);
+  opacity: 0.6;
+  animation: arrowBounce 2.4s ease-in-out infinite;
+}
+
+/* ── Sections ───────────────────────────────────────────────── */
+.miru-section { padding: 6rem 0; border-top: 1px solid var(--m-border); }
+@media (min-width: 768px) { .miru-section { padding: 7.5rem 0; } }
+
+.miru-section-head { max-width: 40rem; margin-bottom: 3.5rem; }
+.miru-section-head .miru-lead { margin-top: 1.25rem; }
+
+/* Postures */
+.miru-postures {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 860px) { .miru-postures { grid-template-columns: repeat(3, 1fr); } }
+
+.miru-posture {
+  background: var(--m-card);
+  border: 1px solid var(--m-border);
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.miru-posture:hover { border-color: var(--m-green-light); transform: translateY(-3px); }
+.miru-posture-icon { color: var(--m-green); height: 2rem; }
+.miru-posture-icon svg { width: 2rem; height: 2rem; }
+.miru-posture h3 {
+  font-family: var(--m-serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  color: var(--m-text);
+}
+.miru-posture p { font-size: 0.9375rem; line-height: 1.7; color: var(--m-muted); }
+.miru-posture strong { font-weight: 400; color: var(--m-text); }
+
+/* Quiet list — the things around the postures */
+.miru-list { border-top: 1px solid var(--m-border); }
+.miru-list-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--m-border);
+}
+@media (min-width: 768px) {
+  .miru-list-row { grid-template-columns: 16rem 1fr; gap: 2.5rem; align-items: baseline; }
+}
+.miru-list-row h3 {
+  font-family: var(--m-serif);
+  font-weight: 400;
+  font-size: 1.375rem;
+  color: var(--m-text);
+  letter-spacing: 0.015em;
+}
+.miru-list-row p { font-size: 0.9375rem; line-height: 1.75; color: var(--m-muted); max-width: 38rem; }
+
+/* Privacy panel */
+.miru-privacy {
+  background: var(--m-surface);
+  border: 1px solid var(--m-border);
+  border-radius: 16px;
+  padding: 2.5rem 1.75rem;
+}
+@media (min-width: 768px) { .miru-privacy { padding: 3rem; } }
+.miru-privacy ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.miru-privacy li {
+  display: flex;
+  gap: 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--m-muted);
+}
+.miru-privacy li::before {
+  content: "";
+  flex: none;
+  width: 6px; height: 6px;
+  margin-top: 0.6rem;
+  border-radius: 50%;
+  background: var(--m-green);
+}
+.miru-privacy li strong { font-weight: 400; color: var(--m-text); }
+
+/* Closing */
+.miru-closing { text-align: center; padding: 7rem 0 8rem; border-top: 1px solid var(--m-border); }
+.miru-closing .miru-h2 { max-width: 30rem; margin: 0 auto; }
+.miru-closing .miru-cta-row { margin-top: 2.5rem; }
+
+/* Footer, on paper */
+.miru-body .footer { border-top: 1px solid var(--m-border); }
+.miru-body .footer-text,
+.miru-body .footer-link { font-family: var(--m-sans); color: var(--m-muted); }
+.miru-body .footer-dot { color: var(--m-border); }
+.miru-body .footer-link:hover { color: var(--m-green-dark); }
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .miru-hero-glow,
+  .miru-mark .fern-live,
+  .miru-scroll-hint { animation: none; }
+  .miru-mark .fern-live { stroke-dashoffset: 0; }
+}

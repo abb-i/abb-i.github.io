@@ -1,0 +1,470 @@
+/* ── Anti Letter ────────────────────────────────────────────────
+   A skin of its own, in the Hermes Agent register: a deep oxblood
+   field, warm cream type, a Times-ish display serif over wide-tracked
+   uppercase mono, hairline rules and grain.
+
+   Deliberately loads ZERO external assets — the type is system
+   serif + system mono (Hermes's own fallback stack), the grain is
+   an inline SVG. No web fonts, no CDN, no third-party request.
+   Everything is scoped to .antiletter-body.
+   ───────────────────────────────────────────────────────────── */
+
+.antiletter-body {
+  --al-red:    #820a00;
+  --al-fg:     #f2ece1;
+  /* Two colours only. The "accent" is the cream itself — emphasis
+     comes from inversion (cream blocks on oxblood), not a third hue. */
+  --al-accent: #f2ece1;
+  --al-dim:    rgba(242,236,225,0.52);
+  --al-muted:  rgba(242,236,225,0.64);
+  --al-rule:   rgba(242,236,225,0.26);
+  --al-rule-soft: rgba(242,236,225,0.13);
+
+  --al-serif: "Times New Roman", Times, Georgia, serif;
+  --al-mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco,
+              Consolas, "Liberation Mono", monospace;
+
+  background-color: var(--al-red);
+  color: var(--al-fg);
+  font-family: var(--al-serif);
+  position: relative;
+}
+
+.antiletter-body ::selection { background: var(--al-accent); color: var(--al-red); }
+.antiletter-body ::-webkit-scrollbar-track { background: var(--al-red); }
+.antiletter-body ::-webkit-scrollbar-thumb { background: rgba(242,236,225,0.32); }
+.antiletter-body ::-webkit-scrollbar-thumb:hover { background: var(--al-accent); }
+
+/* Grain — an inline SVG, no image request */
+.al-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* The inset hairline frame — Hermes's signature edge */
+.al-frame {
+  position: fixed;
+  inset: clamp(0.6rem, 1.1vw, 1.4rem);
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid var(--al-rule);
+}
+@media (max-width: 640px) { .al-frame { display: none; } }
+
+/* ── Navbar / menu on blue ──────────────────────────────────── */
+.antiletter-body .navbar-logo { color: var(--al-fg); }
+.antiletter-body .hamburger-line { background-color: var(--al-fg); }
+.antiletter-body .navbar.navbar-scrolled {
+  background-color: rgba(130,10,0,0.90);
+  border-bottom: 1px solid var(--al-rule);
+}
+.antiletter-body .menu-overlay { background-color: rgba(130,10,0,0.97); }
+.antiletter-body .menu-nav a {
+  font-family: var(--al-serif);
+  color: var(--al-fg);
+  letter-spacing: -0.01em;
+}
+.antiletter-body .menu-nav a:hover { color: var(--al-accent); }
+
+/* ── Shared bits ────────────────────────────────────────────── */
+.al-wrap {
+  position: relative;
+  z-index: 3;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+@media (min-width: 768px) { .al-wrap { padding: 0 3.5rem; } }
+
+.al-eyebrow {
+  font-family: var(--al-mono);
+  font-size: clamp(0.625rem, 0.9vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--al-muted);
+}
+.al-eyebrow .dot { color: var(--al-fg); }
+
+.al-display {
+  font-family: var(--al-serif);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.al-rule { height: 1px; background: var(--al-rule); border: 0; }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.al-hero {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 9rem 0 4rem;
+}
+
+.al-hero-mark {
+  display: block;
+  width: clamp(2.5rem, 4.5vw, 3.75rem);
+  height: auto;
+  opacity: 0.95;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.al-title {
+  font-family: var(--al-serif);
+  font-weight: 400;
+  font-size: clamp(4rem, 17vw, 15rem);
+  line-height: 0.82;
+  letter-spacing: -0.035em;
+  margin: clamp(0.75rem, 1.5vw, 1.25rem) 0 0;
+  text-transform: lowercase;
+}
+.al-title em {
+  font-style: italic;
+  color: var(--al-fg);
+}
+
+.al-standfirst {
+  font-family: var(--al-serif);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  max-width: 26ch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.al-standfirst .hl {
+  background: var(--al-accent);
+  color: var(--al-red);
+  padding: 0 0.18em;
+  font-style: italic;
+}
+
+.al-hero-foot {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  flex-wrap: wrap;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.al-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--al-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1rem 1.75rem;
+  border: 1px solid var(--al-accent);
+  background: var(--al-accent);
+  color: var(--al-red);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.al-btn:hover { background: transparent; color: var(--al-accent); }
+.al-btn .arr { transition: transform 0.25s ease; }
+.al-btn:hover .arr { transform: translateX(4px); }
+
+.al-btn-ghost {
+  background: transparent;
+  color: var(--al-fg);
+  border-color: var(--al-rule);
+}
+.al-btn-ghost:hover { background: var(--al-fg); color: var(--al-red); border-color: var(--al-fg); }
+
+/* ── Sections ───────────────────────────────────────────────── */
+.al-section {
+  position: relative;
+  z-index: 3;
+  padding: clamp(4rem, 9vw, 8rem) 0;
+  border-top: 1px solid var(--al-rule);
+}
+
+.al-section-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .al-section-head { grid-template-columns: 14rem 1fr; gap: 3rem; align-items: start; }
+}
+.al-section-head h2 {
+  font-family: var(--al-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  max-width: 22ch;
+}
+.al-section-head h2 em { font-style: italic; }
+
+/* Description columns */
+.al-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.75rem, 3vw, 3rem);
+}
+@media (min-width: 800px) { .al-cols { grid-template-columns: repeat(3, 1fr); } }
+.al-col p {
+  font-family: var(--al-serif);
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.5;
+  color: rgba(242,236,225,0.88);
+}
+.al-col .al-eyebrow { display: block; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--al-rule-soft); }
+
+/* ── The index of pieces ────────────────────────────────────── */
+.al-index { border-top: 1px solid var(--al-rule); }
+
+.al-entry {
+  display: block;
+  position: relative;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem) 0;
+  border-bottom: 1px solid var(--al-rule);
+  transition: color 0.25s ease;
+}
+.al-entry::after {
+  content: "";
+  position: absolute;
+  inset: 0 -1.5rem;
+  background: var(--al-accent);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.al-entry:hover { color: var(--al-red); }
+.al-entry:hover::after { opacity: 1; }
+
+.al-entry-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+@media (min-width: 900px) {
+  .al-entry-grid { grid-template-columns: 6rem 1fr 12rem; gap: 2rem; }
+}
+
+.al-num {
+  font-family: var(--al-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  color: var(--al-dim);
+  transition: color 0.25s ease;
+}
+.al-entry:hover .al-num { color: var(--al-red); }
+
+.al-entry h3 {
+  font-family: var(--al-serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+.al-entry p {
+  font-family: var(--al-serif);
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  line-height: 1.45;
+  color: rgba(242,236,225,0.68);
+  margin-top: 0.6rem;
+  max-width: 48ch;
+  transition: color 0.25s ease;
+}
+.al-entry:hover p { color: rgba(130,10,0,0.74); }
+
+.al-entry-meta {
+  font-family: var(--al-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--al-muted);
+  transition: color 0.25s ease;
+}
+.al-entry:hover .al-entry-meta { color: rgba(130,10,0,0.78); }
+.al-entry-meta .go { display: block; margin-top: 0.4rem; color: var(--al-fg); }
+.al-entry:hover .al-entry-meta .go { color: var(--al-red); }
+@media (min-width: 900px) { .al-entry-meta { text-align: right; } }
+
+/* ── Closing ────────────────────────────────────────────────── */
+.al-closing {
+  position: relative;
+  z-index: 3;
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  border-top: 1px solid var(--al-rule);
+  text-align: center;
+}
+.al-closing h2 {
+  font-family: var(--al-serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  max-width: 18ch;
+  margin: 0 auto;
+}
+.al-closing h2 em { font-style: italic; }
+.al-closing .al-hero-foot { justify-content: center; }
+
+/* ── Footer on blue ─────────────────────────────────────────── */
+.antiletter-body .footer {
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid var(--al-rule);
+}
+.antiletter-body .footer-text,
+.antiletter-body .footer-link { font-family: var(--al-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--al-muted); }
+.antiletter-body .footer-dot { color: var(--al-rule); }
+.antiletter-body .footer-link:hover { color: var(--al-accent); }
+
+/* ── Letter-specific touches ────────────────────────────────────
+   What makes this page Anti Letter rather than a recoloured grid:
+   it behaves like a piece of post. An envelope flap creases the
+   top, a broadsheet nameplate sets the masthead, a postmark is
+   struck across the hero, the opening paragraph takes a drop cap,
+   the tagline runs up the left margin, and the last rule is a
+   perforation.
+   ───────────────────────────────────────────────────────────── */
+
+/* The flap — one hairline crease across the top of the page */
+.al-flap {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: clamp(5rem, 11vw, 11rem);
+  color: var(--al-rule);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Nameplate — letterpress double rule with a dateline between */
+.al-masthead { position: relative; z-index: 3; }
+.al-rule-thick { height: 3px; background: var(--al-fg); }
+.al-rule-thin  { height: 1px; background: var(--al-fg); opacity: 0.55; }
+
+.al-dateline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  font-family: var(--al-mono);
+  font-size: clamp(0.5625rem, 0.85vw, 0.6875rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--al-muted);
+}
+.al-dateline .mid { color: var(--al-fg); }
+@media (max-width: 620px) {
+  .al-dateline { justify-content: center; }
+  .al-dateline .side { display: none; }
+}
+
+/* The postmark — struck at an angle, as if the page went through a sorting office */
+.al-postmark {
+  position: absolute;
+  top: 46%;
+  right: clamp(1rem, 4vw, 5rem);
+  width: clamp(9rem, 15vw, 14rem);
+  height: auto;
+  color: var(--al-fg);
+  opacity: 0.28;
+  transform: rotate(-13deg);
+  pointer-events: none;
+  z-index: 2;
+}
+.al-postmark .pm-arc {
+  font-family: var(--al-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: currentColor;
+}
+.al-postmark .pm-mono {
+  font-family: var(--al-serif);
+  font-size: 54px;
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+  fill: currentColor;
+}
+.al-postmark .pm-sub {
+  font-family: var(--al-mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-anchor: middle;
+  fill: currentColor;
+}
+@media (max-width: 900px) { .al-postmark { display: none; } }
+
+/* Marginalia — the tagline set sideways up the left edge */
+.al-margin-note {
+  position: fixed;
+  left: clamp(1.6rem, 2.2vw, 2.4rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-family: var(--al-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--al-fg);
+  opacity: 0.34;
+  z-index: 3;
+  pointer-events: none;
+  white-space: nowrap;
+}
+@media (max-width: 1240px) { .al-margin-note { display: none; } }
+
+/* Drop cap — the opening column reads like the first line of a letter */
+.al-col.al-opening p::first-letter {
+  float: left;
+  font-family: var(--al-serif);
+  font-size: 3.5em;
+  line-height: 0.78;
+  padding: 0.06em 0.1em 0 0;
+  color: var(--al-fg);
+}
+
+/* Perforation — the last rule before the sign-off is a tear line */
+.al-perf {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 1.5rem;
+  max-width: 78rem;
+  margin: 0 auto;
+  color: var(--al-muted);
+}
+@media (min-width: 768px) { .al-perf { padding: 0 3.5rem; } }
+.al-perf::before,
+.al-perf::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-image: linear-gradient(to right, var(--al-rule) 0 6px, transparent 6px 12px);
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+}
+.al-perf span {
+  font-family: var(--al-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* The sign-off carries no top rule of its own — the perforation is the rule */
+.al-closing.al-after-perf { border-top: 0; }
