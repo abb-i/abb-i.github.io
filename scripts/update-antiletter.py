@@ -20,6 +20,8 @@ import argparse
 import html
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -48,10 +50,43 @@ def is_podcast(item: ET.Element) -> bool:
     return enc is not None and "audio" in (enc.get("type") or "")
 
 
-def fetch(url: str) -> ET.Element:
-    req = urllib.request.Request(url, headers={"User-Agent": "abbi-site-build/1.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return ET.fromstring(r.read())
+# Substack sits behind Cloudflare, which will 403 a bare urllib request from a
+# datacenter IP (a GitHub runner) while letting a normal reader through. These
+# are the headers a feed reader actually sends.
+HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
+    "Accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
+    "Accept-Language": "en-GB,en;q=0.9,de;q=0.8",
+    "Cache-Control": "no-cache",
+}
+
+
+class Blocked(Exception):
+    """The feed refused us — almost always Cloudflare, not a bug."""
+
+
+def fetch(url: str, tries: int = 3) -> ET.Element:
+    last = None
+    for attempt in range(tries):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return ET.fromstring(r.read())
+        except urllib.error.HTTPError as exc:
+            last = exc
+            if exc.code in (403, 429):
+                if attempt == tries - 1:
+                    raise Blocked(f"HTTP {exc.code}") from exc
+                time.sleep(4 * (attempt + 1))
+            else:
+                raise
+        except Exception as exc:
+            last = exc
+            if attempt == tries - 1:
+                raise
+            time.sleep(2 * (attempt + 1))
+    raise last  # unreachable, but keeps the type checker honest
 
 
 def entry_html(index: int, item: ET.Element) -> str:
@@ -89,6 +124,14 @@ def main() -> int:
 
     try:
         root = fetch(FEED)
+    except Blocked as exc:
+        # Cloudflare turned us away. The page keeps the pieces it already has,
+        # which are still correct — just not newly checked. Not worth failing
+        # the build over, so say so loudly and exit clean.
+        print(f"feed refused the request ({exc}) — leaving antiletter.html as it is.\n"
+              f"If this keeps happening, run this script locally instead; a home\n"
+              f"connection is not blocked the way a datacenter one is.", file=sys.stderr)
+        return 0
     except Exception as exc:                      # offline, feed moved, etc.
         print(f"could not read {FEED}: {exc}", file=sys.stderr)
         return 1
