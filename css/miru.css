@@ -33,7 +33,10 @@
 .miru-body ::-webkit-scrollbar-thumb:hover { background: var(--m-green); }
 
 /* ── Navbar / menu, re-tuned for paper ──────────────────────── */
-.miru-body .navbar-logo { color: var(--m-text); }
+.miru-body .navbar-logo {
+  --logo-bg: transparent;
+  --logo-fg: var(--m-green);
+}
 .miru-body .hamburger-line { background-color: var(--m-text); }
 .miru-body .navbar.navbar-scrolled {
   background-color: rgba(247,245,239,0.88);

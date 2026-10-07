@@ -80,13 +80,31 @@ img, video { display: block; max-width: 100%; }
 }
 @media (min-width: 768px) { .navbar-inner { padding: 0 3rem; } }
 
+/* The logo is the favicon tile: the anti-letter "a" masked out of a
+   rounded square. Sections recolour it through --logo-bg / --logo-fg. */
 .navbar-logo {
-  font-family: var(--font-dm);
-  font-size: 2.25rem;
-  color: var(--ink);
-  letter-spacing: -0.025em;
+  --logo-bg:   var(--bg);
+  --logo-fg:   #ffffff;
+  display: block;
+  line-height: 0;
   position: relative;
   z-index: 60;
+}
+.logo-mark {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 22%;
+  background-color: var(--logo-bg);
+  position: relative;
+}
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  background-color: var(--logo-fg);
+  -webkit-mask: url("../public/icons/logo-mask.png") center / contain no-repeat;
+          mask: url("../public/icons/logo-mask.png") center / contain no-repeat;
 }
 
 .menu-toggle {

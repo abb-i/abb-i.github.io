@@ -58,7 +58,10 @@
 @media (max-width: 640px) { .al-frame { display: none; } }
 
 /* ── Navbar / menu on blue ──────────────────────────────────── */
-.antiletter-body .navbar-logo { color: var(--al-fg); }
+.antiletter-body .navbar-logo {
+  --logo-bg: var(--al-red);
+  --logo-fg: var(--al-fg);
+}
 .antiletter-body .hamburger-line { background-color: var(--al-fg); }
 .antiletter-body .navbar.navbar-scrolled {
   background-color: rgba(130,10,0,0.90);
